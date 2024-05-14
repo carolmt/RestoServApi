@@ -3,6 +3,7 @@ package com.example.restoservapi.controller;
 import com.example.restoservapi.model.Ordenes;
 import com.example.restoservapi.service.OrdenesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class OrdenesRestController {
     }
 
     @PostMapping("/createOrder")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Ordenes> create(@RequestBody Ordenes orden) {
         if (orden.getOrdenId() != null)
             return ResponseEntity.badRequest().build();
@@ -42,8 +44,6 @@ public class OrdenesRestController {
             return ResponseEntity.badRequest().build();
         }
 
-        this.ordenesService.saveOrdenes(orden);
-
-        return ResponseEntity.ok(orden);
+        return ResponseEntity.ok(ordenesService.saveOrdenes(orden));
     }
 }
