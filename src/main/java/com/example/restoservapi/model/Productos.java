@@ -18,7 +18,8 @@ public class Productos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prod_id")
     private Long prodId;
-    private String nom_prod;
+    @Column(name = "nom_prod")
+    private String nomProd;
     private float precio;
 
     @ManyToOne
