@@ -3,9 +3,7 @@ package com.example.restoservapi.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 import java.util.Set;
@@ -14,6 +12,8 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Table(name="ORDENES")
 public class Ordenes {
 
@@ -23,7 +23,8 @@ public class Ordenes {
     private Long ordenId;
 
     private Date FECHAORDEN;
-    private float precio_total;
+    @Column(name = "precio_total")
+    private float precioTotal;
     private Boolean hecho;
 
     @OneToOne

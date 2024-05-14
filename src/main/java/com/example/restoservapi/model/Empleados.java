@@ -20,8 +20,10 @@ public class Empleados {
     private Long emplId;
 
     private int codigo;
-    private String nom_empl;
-    private String apellido_empl;
+    @Column(name = "nom_empl")
+    private String nomEmpl;
+    @Column(name = "apellido_empl")
+    private String apellidoEmpl;
 
     @OneToMany(mappedBy = "empleado")
     private List<Ordenes> ordenes;
