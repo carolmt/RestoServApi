@@ -80,10 +80,10 @@ Ejemplo:
 Datos mínimos para crear cliente:
 
 {
-
+{
 	"telf": 1111222333,
 	"nom_cli": "PABLO"
- 
+ }
 }
 
 
@@ -109,11 +109,11 @@ Aún no puedo aportar JSON válido para esta llamada.
 	Ejemplo: 
  
 {
-
+{
 	"telf": 1111222333,
 	"nom_cli": "PABLO",
 	"direccion": "calle falsa, 123"
- 
+ }
 }
 
 Si no se pone el nombre dará error.
