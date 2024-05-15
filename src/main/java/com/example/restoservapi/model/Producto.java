@@ -1,11 +1,11 @@
 package com.example.restoservapi.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="PRODUCTOS")
-public class Productos {
+public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prod_id")
@@ -22,11 +22,10 @@ public class Productos {
     private String nomProd;
     private float precio;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "cat_id", nullable = false)
-    @JsonBackReference
-    private Categorias categoria;
+    private Categoria categoria;
 
-    @OneToMany(mappedBy = "producto")
-    private Set<Detalle_Ordenes> detallesOrden;
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    private List<DetalleOrden> detallesOrden;
 }

@@ -1,7 +1,7 @@
 package com.example.restoservapi.controller;
 
-import com.example.restoservapi.model.Empleados;
-import com.example.restoservapi.service.EmpleadosService;
+import com.example.restoservapi.model.Empleado;
+import com.example.restoservapi.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,22 +13,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/RestoServ/api/empleados")
-public class EmpleadosRestController {
-    private final EmpleadosService empleadosService;
+public class EmpleadoRestController {
+    private final EmpleadoService empleadoService;
 
     @Autowired
-    public EmpleadosRestController(EmpleadosService empleadosService) {
-        this.empleadosService = empleadosService;
+    public EmpleadoRestController(EmpleadoService empleadoService) {
+        this.empleadoService = empleadoService;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Empleados>>getAllEmpleados(){
-        return ResponseEntity.ok(empleadosService.getAllEmpleados());
+    public ResponseEntity<List<Empleado>>getAllEmpleados(){
+        return ResponseEntity.ok(empleadoService.getAllEmpleados());
     }
 
     @GetMapping("/{emplId}")
-    public ResponseEntity<Empleados>getEmpleadosByEmplId(@PathVariable Long emplId){
-        return this.empleadosService.getEmpleadosByEmplId(emplId)
+    public ResponseEntity<Empleado>getEmpleadosByEmplId(@PathVariable Long emplId){
+        return this.empleadoService.getEmpleadosByEmplId(emplId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="EMPLEADOS")
-public class Empleados {
+public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,8 @@ public class Empleados {
     @Column(name = "apellido_empl")
     private String apellidoEmpl;
 
-    @OneToMany(mappedBy = "empleado")
-    private List<Ordenes> ordenes;
+    @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL)
+    private List<Orden> ordenes;
 
 
 

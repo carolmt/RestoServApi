@@ -1,4 +1,5 @@
 package com.example.restoservapi.controller;
 
-public class ClientesRestController {
+public class DetalleOrdenRestController {
+
 }

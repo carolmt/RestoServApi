@@ -1,7 +1,7 @@
 package com.example.restoservapi.controller;
 
-import com.example.restoservapi.model.Productos;
-import com.example.restoservapi.service.ProductosService;
+import com.example.restoservapi.model.Producto;
+import com.example.restoservapi.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,26 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/RestoServ/api/productos")
-public class ProductosRestController {
-    private final ProductosService productosService;
+public class ProductoRestController {
+    private final ProductoService productoService;
 
     @Autowired
-    public ProductosRestController(ProductosService productosService) {
-        this.productosService = productosService;
+    public ProductoRestController(ProductoService productoService) {
+        this.productoService = productoService;
     }
 
     @GetMapping("")
-    public List<Productos> getAllProductos(){
-        return productosService.getAllProductos();
+    public List<Producto> getAllProductos(){
+        return productoService.getAllProductos();
     }
 
     @GetMapping("/{nomProd}")
-    public ResponseEntity<Productos> getProductosByNomProdIgnoreCase(@PathVariable String nomProd){
-        return this.productosService.getProductosByNomProdIgnoreCase(nomProd)
+    public ResponseEntity<Producto> getProductosByNomProdIgnoreCase(@PathVariable String nomProd){
+        return this.productoService.getProductosByNomProdIgnoreCase(nomProd)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

@@ -1,4 +1,4 @@
 package com.example.restoservapi.service;
 
-public class ClientesServiceImpl {
+public interface DetalleOrdenService {
 }

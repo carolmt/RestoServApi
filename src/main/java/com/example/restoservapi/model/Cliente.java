@@ -5,21 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="CLIENTES")
-public class Clientes {
+public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long telf;
 
     private String nom_cli;
     private String direccion;
     private String comentario;
 
-    @OneToOne(mappedBy = "cliente")
-    private Ordenes orden;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Orden> ordenCliente;
 
 }

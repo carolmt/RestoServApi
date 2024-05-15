@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="CATEGORIAS")
-public class Categorias {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,5 @@ public class Categorias {
 
     @OneToMany(mappedBy = "categoria",
     cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Productos> productos;
+    private List<Producto> productos;
 }
