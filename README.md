@@ -81,6 +81,7 @@ Datos mínimos para crear cliente:
 
 {
 "telf": 1111222333,
+
 "nom_cli": "PABLO"
 }
 
@@ -108,7 +109,9 @@ Ejemplo:
  
 {
 "telf": 1111222333,
+
 "nom_cli": "PABLO",
+
 "direccion": "calle falsa, 123"
 }
 
