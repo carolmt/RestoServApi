@@ -71,7 +71,7 @@ Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
 
 **POST :**
 
-	**Crear cliente:** 
+**Crear cliente:** 
  
  http://localhost:8080/RestoServ/api/clientes
  
@@ -100,18 +100,16 @@ Aún no puedo aportar JSON válido para esta llamada.
 
 **PUT :**
 
-	**Actualizar cliente:** 
+**Actualizar cliente:** 
  
-	http://localhost:8080/RestoServ/api/clientes
+http://localhost:8080/RestoServ/api/clientes
  
-	Ejemplo: 
+Ejemplo: 
  
 {
-{
-	"telf": 1111222333,
-	"nom_cli": "PABLO",
-	"direccion": "calle falsa, 123"
- }
+"telf": 1111222333,
+"nom_cli": "PABLO",
+"direccion": "calle falsa, 123"
 }
 
 Si no se pone el nombre dará error.
