@@ -80,18 +80,16 @@ Ejemplo:
 Datos mínimos para crear cliente:
 
 {
-{
-	"telf": 1111222333,
-	"nom_cli": "PABLO"
- }
+"telf": 1111222333,
+"nom_cli": "PABLO"
 }
 
 
 **Crear pedido:  (no va)**
 
-	http://localhost:8080/RestoServ/api/clientes
+http://localhost:8080/RestoServ/api/clientes
  
-	Aún no puedo aportar JSON válido para esta llamada.
+Aún no puedo aportar JSON válido para esta llamada.
  
 
 **Crear detalle orden:  (no va)**
