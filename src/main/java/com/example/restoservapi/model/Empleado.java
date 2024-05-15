@@ -28,30 +28,4 @@ public class Empleado {
     @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL)
     private List<Orden> ordenes;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
