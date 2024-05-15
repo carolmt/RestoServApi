@@ -41,4 +41,13 @@ public class ClienteRestController {
 
         return ResponseEntity.ok(clienteService.saveCliente(cliente));
     }
+
+    @PutMapping("")
+    public ResponseEntity<Cliente> update(@RequestBody Cliente cliente) {
+        if (cliente == null || cliente.getTelf() == null)
+            return ResponseEntity.badRequest().build();
+
+        return ResponseEntity.ok(clienteService.updateCliente(cliente));
+    }
+
 }
