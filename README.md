@@ -152,13 +152,13 @@ http://localhost:8080/RestoServ/api/clientes
  
 Ejemplo: 
  
-{
-"telf": 1111222333,
-
-"nom_cli": "PABLO",
-
-"direccion": "calle falsa, 123"
-}
+	{
+	"telf": 1111222333,
+	
+	"nom_cli": "PABLO",
+	
+	"direccion": "calle falsa, 123"
+	}
 
 Si no se pone el nombre dará error.
 
