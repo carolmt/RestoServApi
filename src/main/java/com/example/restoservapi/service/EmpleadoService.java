@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface EmpleadoService {
     Optional<Empleado> getEmpleadosByEmplId(Long emplId);
     List<Empleado> getAllEmpleados();
+    Optional<Empleado> getEmpleadoByCodigo(int codigo);
 }

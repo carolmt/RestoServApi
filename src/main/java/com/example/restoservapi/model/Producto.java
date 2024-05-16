@@ -1,5 +1,6 @@
 package com.example.restoservapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Producto {
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "cat_id", nullable = false)
+    @JsonBackReference
     private Categoria categoria;
 
     @OneToMany(mappedBy = "producto")

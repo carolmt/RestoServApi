@@ -32,4 +32,11 @@ public class EmpleadoRestController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/codigo/{codigo}")
+    public ResponseEntity<Empleado>getEmpleadoByCodigo(@PathVariable int codigo) {
+        return this.empleadoService.getEmpleadoByCodigo(codigo)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

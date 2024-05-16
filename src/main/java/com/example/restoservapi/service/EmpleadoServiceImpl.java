@@ -27,4 +27,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public Optional<Empleado> getEmpleadosByEmplId(Long emplId) {
         return empleadoRepository.findEmpleadosByEmplId(emplId);
     }
+
+    @Override
+    public Optional<Empleado> getEmpleadoByCodigo(int codigo) {
+        return empleadoRepository.findEmpleadosByCodigo(codigo);
+    }
 }

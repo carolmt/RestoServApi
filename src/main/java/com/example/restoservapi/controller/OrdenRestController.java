@@ -37,7 +37,7 @@ public class OrdenRestController {
    @PostMapping("/createOrder")
    @ResponseStatus(HttpStatus.CREATED)
    public ResponseEntity<OrdenDTO> create(@RequestBody Orden orden) {
-    if(orden.getOrdenId()== null){
+    if(orden.getOrdenId()!= null){
         return ResponseEntity.badRequest().build();
     }
 
