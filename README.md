@@ -134,8 +134,7 @@ Ejemplo:
         	"cantidad": 3
     	}
      
-	]
-}
+	]}
 
  
 
