@@ -57,6 +57,19 @@ http://localhost:8080/RestoServ/api/empleados/{emplId}
 
 Ejemplo: http://localhost:8080/RestoServ/api/empleados/1
 
+OBTENER EMPLEADO POR CODIGO
+
+http://localhost:8080/RestoServ/api/empleados/{codigo}
+
+Ejemplo: http://localhost:8080/RestoServ/api/empleados/1011
+
+OBTENER EMPLEADO POR CODIGO Y NOMBRE (AUTH)
+
+http://localhost:8080/RestoServ/api/empleados/{codigo}?{nomEmpl}
+
+Ejemplo: http://localhost:8080/RestoServ/api/empleados/1012?mario
+
+
 **Productos :** 
 
 OBTENER TODOS LOS PRODUCTOS:
@@ -86,11 +99,44 @@ Datos mínimos para crear cliente:
 }
 
 
-**Crear pedido:  (no va)**
+**Crear pedido:**
 
 http://localhost:8080/RestoServ/api/clientes
  
-Aún no puedo aportar JSON válido para esta llamada.
+Ejemplo:
+
+	{
+	"precioTotal": 100.0,
+ 
+	"cliente": {
+    	"telf": 666999666
+	},
+ 
+	"empleado": {
+    	"emplId": 1
+	},
+ 
+	"detallesOrden": [
+ 
+    	{
+        	"producto": {
+            	"prodId": 1
+        	},
+         
+        	"cantidad": 2
+    	},
+     
+    	{
+        	"producto": {
+            	"prodId": 2
+        	},
+         
+        	"cantidad": 3
+    	}
+     
+	]
+}
+
  
 
 **Crear detalle orden:  (no va)**
