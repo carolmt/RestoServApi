@@ -92,11 +92,11 @@ Ejemplo:
 
 Datos mínimos para crear cliente:
 
-{
-"telf": 1111222333,
-
-"nom_cli": "PABLO"
-}
+	{
+	"telf": 1111222333,
+	
+	"nom_cli": "PABLO"
+	}
 
 
 **Crear pedido:**
@@ -107,33 +107,25 @@ Ejemplo:
 
 	{
 	"precioTotal": 100.0,
- 
 	"cliente": {
     	"telf": 666999666
 	},
- 
 	"empleado": {
     	"emplId": 1
 	},
- 
 	"detallesOrden": [
- 
     	{
         	"producto": {
             	"prodId": 1
         	},
-         
         	"cantidad": 2
     	},
-     
     	{
         	"producto": {
             	"prodId": 2
         	},
-         
         	"cantidad": 3
     	}
-     
 	]}
 
  
