@@ -26,6 +26,6 @@ public class Producto {
     @JoinColumn(name = "cat_id", nullable = false)
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "producto")
     private List<DetalleOrden> detallesOrden;
 }

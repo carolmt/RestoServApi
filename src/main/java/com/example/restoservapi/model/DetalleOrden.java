@@ -1,5 +1,6 @@
 package com.example.restoservapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,11 +26,13 @@ public class DetalleOrden {
     @Column(name = "CANTIDAD")
     private int cantidad;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "orden_id")
+    @JsonIgnoreProperties("detallesOrden")
     Orden orden;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "prod_id")
+    @JsonIgnoreProperties("detallesOrden")
     Producto producto;
 }

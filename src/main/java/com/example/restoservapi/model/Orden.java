@@ -27,15 +27,17 @@ public class Orden {
     private float precioTotal; //
     private Boolean hecho = false;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "telf") //
+    @JsonIgnoreProperties("ordenCliente")
     private Cliente cliente;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "empl_id") //
+    @JsonIgnoreProperties("ordenes")
     private Empleado empleado;
 
-    @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "orden")
     private List<DetalleOrden> detallesOrden;
 
     public void addDetalleOrden(DetalleOrden detalleOrden) {

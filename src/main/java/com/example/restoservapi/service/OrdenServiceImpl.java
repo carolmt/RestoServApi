@@ -49,27 +49,7 @@ public class OrdenServiceImpl implements OrdenService {
 
     @Override
     public OrdenDTO saveOrdenes(Orden orden) {
-        EmpleadoService empleadoService = new EmpleadoServiceImpl(empleadoRepository);
-        Empleado empleado = empleadoService.getEmpleadosByEmplId(orden.getEmpleado().getEmplId()).get();
-        orden.setEmpleado(empleado);
-
-        ClienteService clienteService = new ClienteServiceImpl(clienteRepository);
-        Cliente cliente = clienteService.getClienteByTelf(orden.getCliente().getTelf()).get();
-        orden.setCliente(cliente);
-
-        // Guardar la Orden primero
-        Orden savedOrden = ordenRepository.save(orden);
-
-        DetalleOrdenService detalleOrdenService = new DetalleOrdenServiceImpl(detalleOrdenRepository);
-        List<DetalleOrden> detalleOrdenList = orden.getDetallesOrden();
-        for (DetalleOrden detalleOrden : detalleOrdenList) {
-            // Establecer la Orden en cada DetalleOrden
-            detalleOrden.setOrden(savedOrden);
-            // Guardar cada DetalleOrden
-            detalleOrdenService.saveDetalleOrden(detalleOrden);
-        }
-
-        return OrdenMapper.toOrdenDTO(savedOrden);
+        return OrdenMapper.toOrdenDTO(ordenRepository.save(orden));
     }
 
     @Override

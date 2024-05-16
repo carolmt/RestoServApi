@@ -34,17 +34,21 @@ public class OrdenRestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/createOrder")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<OrdenDTO> create(@RequestBody Orden orden) {
-        if (orden.getOrdenId() != null)
-            return ResponseEntity.badRequest().build();
-
-        if (orden.getEmpleado() == null || orden.getEmpleado().getEmplId() == null ||
-                orden.getCliente() == null || orden.getCliente().getTelf() == null) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        return ResponseEntity.ok(ordenService.saveOrdenes(orden));
+   @PostMapping("/createOrder")
+   @ResponseStatus(HttpStatus.CREATED)
+   public ResponseEntity<OrdenDTO> create(@RequestBody Orden orden) {
+    if(orden.getOrdenId()== null){
+        return ResponseEntity.badRequest().build();
     }
+
+    return ResponseEntity.ok(ordenService.saveOrdenes(orden));
+   }
+
+
+    /*@PostMapping("/createOrder")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<OrdenDTO> create (@RequestBody OrdenDTO orden){
+        return ResponseEntity.ok(ordenService.saveOrdenes(orden));
+
+    }*/
 }
