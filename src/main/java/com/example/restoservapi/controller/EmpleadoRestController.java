@@ -4,13 +4,11 @@ import com.example.restoservapi.model.Empleado;
 import com.example.restoservapi.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/RestoServ/api/empleados")
 public class EmpleadoRestController {
@@ -36,6 +34,13 @@ public class EmpleadoRestController {
     @GetMapping("/codigo/{codigo}")
     public ResponseEntity<Empleado>getEmpleadoByCodigo(@PathVariable int codigo) {
         return this.empleadoService.getEmpleadoByCodigo(codigo)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/codigo/{codigo}?{nomEmpl}")
+    public ResponseEntity<Empleado>getEmpleadoByCodigoAndNomEmpl(@PathVariable int codigo, String nomEmpl) {
+        return this.empleadoService.getEmpleadoByCodigoAndNomEmpl(codigo, nomEmpl)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

@@ -32,4 +32,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public Optional<Empleado> getEmpleadoByCodigo(int codigo) {
         return empleadoRepository.findEmpleadosByCodigo(codigo);
     }
+
+    @Override
+    public Optional<Empleado> getEmpleadoByCodigoAndNomEmpl(int codigo, String nomEmpl) {
+        return empleadoRepository.findEmpleadoByCodigoAndNomEmpl(codigo, nomEmpl);
+    }
 }

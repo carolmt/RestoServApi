@@ -9,4 +9,5 @@ public interface EmpleadoService {
     Optional<Empleado> getEmpleadosByEmplId(Long emplId);
     List<Empleado> getAllEmpleados();
     Optional<Empleado> getEmpleadoByCodigo(int codigo);
+    Optional<Empleado> getEmpleadoByCodigoAndNomEmpl(int codigo, String nomEmpl);
 }
