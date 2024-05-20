@@ -1,6 +1,7 @@
 package com.example.restoservapi.controller;
 
 import com.example.restoservapi.DTO.OrdenDTO;
+import com.example.restoservapi.model.DetalleOrden;
 import com.example.restoservapi.model.Orden;
 import com.example.restoservapi.service.OrdenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -46,10 +48,4 @@ public class OrdenRestController {
    }
 
 
-    /*@PostMapping("/createOrder")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<OrdenDTO> create (@RequestBody OrdenDTO orden){
-        return ResponseEntity.ok(ordenService.saveOrdenes(orden));
-
-    }*/
 }

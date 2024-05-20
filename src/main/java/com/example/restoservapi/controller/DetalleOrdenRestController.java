@@ -37,6 +37,9 @@ public class DetalleOrdenRestController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<DetalleOrden> create(@RequestBody DetalleOrden detalleOrden) {
+        if(detalleOrden.getDetalleId() != null){
+            return ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok(detalleOrdenService.saveDetalleOrden(detalleOrden));
     }
 }
