@@ -1,6 +1,7 @@
 package com.example.restoservapi.service;
 
 import com.example.restoservapi.model.DetalleOrden;
+import com.example.restoservapi.model.Orden;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,4 +12,5 @@ public interface DetalleOrdenService {
     void deleteDetalleOrdenById(Long detalleId);
     DetalleOrden saveDetalleOrden(DetalleOrden detalleOrden);
     DetalleOrden updateDetalleOrden(DetalleOrden detalleOrden);
+    void deleteByOrden(Orden orden);
 }

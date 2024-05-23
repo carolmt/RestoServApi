@@ -1,6 +1,7 @@
 package com.example.restoservapi.service;
 
 import com.example.restoservapi.DTO.OrdenDTO;
+import com.example.restoservapi.model.Cliente;
 import com.example.restoservapi.model.Orden;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public interface OrdenService {
     Optional<List<Orden>> getAllOrdenes();
     Optional<Orden> getOrdenesById(Long ordenId);
     void deleteOrdenesById(Long ordenId);
+    List<Orden> findOrdenesByCliente(Cliente cliente);
 
     OrdenDTO saveOrdenes(Orden orden);
     OrdenDTO updateOrdenes(Orden orden);

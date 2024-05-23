@@ -51,4 +51,14 @@ public class ClienteRestController {
         return ResponseEntity.ok(clienteService.updateCliente(cliente));
     }
 
+    @DeleteMapping("/{telf}")
+    public ResponseEntity<Cliente> deleteByTelf(@PathVariable Long telf) {
+        if (telf == null ) {
+            return ResponseEntity.badRequest().build();
+        }
+        clienteService.deleteClienteByTelf(telf);
+        return ResponseEntity.noContent().build();
+
+    }
+
 }

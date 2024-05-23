@@ -24,7 +24,7 @@ public class DetalleOrden {
     private Long prodId;
 
     @Column(name = "CANTIDAD")
-    private int cantidad;
+    private int cantidad = 1;
 
     @ManyToOne
     @JoinColumn(name = "orden_id")

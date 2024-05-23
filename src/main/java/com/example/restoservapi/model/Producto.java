@@ -23,7 +23,7 @@ public class Producto {
     private String nomProd;
     private float precio;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "cat_id", nullable = false)
     @JsonBackReference
     private Categoria categoria;

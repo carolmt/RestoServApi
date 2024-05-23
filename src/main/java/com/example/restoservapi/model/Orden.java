@@ -44,4 +44,12 @@ public class Orden {
         detalleOrden.setOrden(this);
         this.detallesOrden.add(detalleOrden);
     }
+
+    public void setPrecioTotal() {
+        float total = 0;
+        for (DetalleOrden detalle : this.detallesOrden) {
+            total += detalle.getProducto().getPrecio();
+        }
+        this.precioTotal = total;
+    }
 }

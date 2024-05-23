@@ -1,6 +1,7 @@
 package com.example.restoservapi.service;
 
 import com.example.restoservapi.model.DetalleOrden;
+import com.example.restoservapi.model.Orden;
 import com.example.restoservapi.repository.DetalleOrdenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,11 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
     @Override
     public void deleteDetalleOrdenById(Long detalleId) {
         detalleOrdenRepository.deleteDetalleOrdenByDetalleId(detalleId);
+    }
+
+    @Override
+    public void deleteByOrden(Orden orden) {
+        detalleOrdenRepository.deleteByOrden(orden);
     }
 
     @Override

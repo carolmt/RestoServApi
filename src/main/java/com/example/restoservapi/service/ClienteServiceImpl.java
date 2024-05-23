@@ -1,9 +1,13 @@
 package com.example.restoservapi.service;
 
 import com.example.restoservapi.model.Cliente;
+import com.example.restoservapi.model.Orden;
 import com.example.restoservapi.repository.ClienteRepository;
+import com.example.restoservapi.repository.DetalleOrdenRepository;
+import com.example.restoservapi.repository.OrdenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,10 +15,14 @@ import java.util.Optional;
 @Service
 public class ClienteServiceImpl implements ClienteService{
     private final ClienteRepository clienteRepository;
+    private final OrdenRepository ordenRepository;
+    private final DetalleOrdenRepository detalleOrdenRepository;
 
     @Autowired
-    public ClienteServiceImpl(ClienteRepository clienteRepository) {
+    public ClienteServiceImpl(ClienteRepository clienteRepository, OrdenRepository ordenRepository, DetalleOrdenRepository detalleOrdenRepository) {
         this.clienteRepository = clienteRepository;
+        this.ordenRepository = ordenRepository;
+        this.detalleOrdenRepository = detalleOrdenRepository;
     }
 
     @Override
@@ -27,9 +35,18 @@ public class ClienteServiceImpl implements ClienteService{
         return Optional.of(clienteRepository.findAll());
     }
 
+    @Transactional
     @Override
     public void deleteClienteByTelf(Long telf) {
-        clienteRepository.deleteClienteByTelf(telf);
+        Optional<Cliente> cliente = clienteRepository.findClienteByTelf(telf);
+        if (cliente.isPresent()) {
+            List<Orden> ordenes = ordenRepository.findByCliente(cliente.get());
+            for (Orden orden : ordenes) {
+                detalleOrdenRepository.deleteByOrden(orden);
+                ordenRepository.delete(orden);
+            }
+            clienteRepository.delete(cliente.get());
+        }
     }
 
     @Override

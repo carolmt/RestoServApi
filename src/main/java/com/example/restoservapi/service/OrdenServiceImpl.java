@@ -43,6 +43,11 @@ public class OrdenServiceImpl implements OrdenService {
     }
 
     @Override
+    public List<Orden> findOrdenesByCliente(Cliente cliente) {
+        return ordenRepository.findByCliente(cliente);
+    }
+
+    @Override
     public void deleteOrdenesById(Long ordenId) {
         ordenRepository.deleteOrdenesByOrdenId(ordenId);
     }
