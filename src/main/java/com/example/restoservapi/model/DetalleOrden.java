@@ -24,7 +24,7 @@ public class DetalleOrden {
     private Long prodId;
 
     @Column(name = "CANTIDAD")
-    private int cantidad = 1;
+    private final int cantidad = 1;
 
     @ManyToOne
     @JoinColumn(name = "orden_id")
@@ -35,4 +35,8 @@ public class DetalleOrden {
     @JoinColumn(name = "prod_id")
     @JsonIgnoreProperties("detallesOrden")
     Producto producto;
+
+    public float getPrecioProducto() {
+        return this.producto.getPrecio();
+    }
 }

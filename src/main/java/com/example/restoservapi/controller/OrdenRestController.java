@@ -31,10 +31,13 @@ public class OrdenRestController {
     }
 
     @GetMapping("/{ordenId}")
-    public ResponseEntity<Orden> getOrdenesById(Long ordenId) {
-        return ordenService.getOrdenesById(ordenId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Orden> getOrdenesById(@PathVariable Long ordenId) {
+        Orden orden = ordenService.getOrdenesById(ordenId);
+        if (orden == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(orden);
+        }
     }
 
    @PostMapping("/createOrder")

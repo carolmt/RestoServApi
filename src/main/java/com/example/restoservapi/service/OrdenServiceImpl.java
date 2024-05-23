@@ -32,13 +32,19 @@ public class OrdenServiceImpl implements OrdenService {
         this.detalleOrdenRepository = detalleOrdenRepository;
     }
 
+    public Orden addDetalleOrdenToOrden(Long ordenId, DetalleOrden detalleOrden) {
+        Orden orden = ordenRepository.findOrdenesByOrdenId(ordenId);
+        orden.addDetalleOrden(detalleOrden);
+        return ordenRepository.save(orden); // Guarda los cambios en la orden
+    }
+
     @Override
     public Optional<List<Orden>> getAllOrdenes() {
         return Optional.of(ordenRepository.findAll());
     }
 
     @Override
-    public Optional<Orden> getOrdenesById(Long ordenId) {
+    public Orden getOrdenesById(Long ordenId) {
         return ordenRepository.findOrdenesByOrdenId(ordenId);
     }
 

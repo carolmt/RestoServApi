@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface OrdenRepository extends JpaRepository<Orden, Long> {
 
     List<Orden> findAll();
-    Optional<Orden> findOrdenesByOrdenId(Long ordenId);
+    Orden findOrdenesByOrdenId(Long ordenId);
     List<Orden> findByCliente(Cliente cliente);
     void deleteOrdenesByOrdenId(Long ordenId);
 }

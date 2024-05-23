@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface OrdenService {
     Optional<List<Orden>> getAllOrdenes();
-    Optional<Orden> getOrdenesById(Long ordenId);
+    Orden getOrdenesById(Long ordenId);
     void deleteOrdenesById(Long ordenId);
     List<Orden> findOrdenesByCliente(Cliente cliente);
 
