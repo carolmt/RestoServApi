@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Controlador que gestiona las peticiones HTTP relacionadas con la tabla DetalleOrden de la base de datos.
+ ***************************************************************************************************************/
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/RestoServ/api/detalleOrdenes")

@@ -8,8 +8,12 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que representa la entidad Orden
+ ***************************************************************************************************************/
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,6 +21,9 @@ import java.util.Set;
 @Table(name="ORDENES")
 public class Orden {
 
+    /***************************************************************************************************************
+     * Atributos de la clase
+     ***************************************************************************************************************/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orden_id")

@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que implementa los métodos de la interfaz ProductoService
+ ***************************************************************************************************************/
 @Service
 public class ProductoServiceImpl implements ProductoService {
     private final ProductoRepository productoRepository;

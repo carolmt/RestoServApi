@@ -15,7 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que implementa los métodos de la interfaz OrdenService
+ ***************************************************************************************************************/
 @Service
 public class OrdenServiceImpl implements OrdenService {
     private final OrdenRepository ordenRepository;
@@ -24,6 +28,13 @@ public class OrdenServiceImpl implements OrdenService {
     private final DetalleOrdenRepository detalleOrdenRepository;
 
 
+    /**
+     * Constructor de la clase
+     * @param ordenRepository
+     * @param empleadoRepository
+     * @param clienteRepository
+     * @param detalleOrdenRepository
+     */
     @Autowired
     public OrdenServiceImpl(OrdenRepository ordenRepository, EmpleadoRepository empleadoRepository, ClienteRepository clienteRepository, DetalleOrdenRepository detalleOrdenRepository) {
         this.ordenRepository = ordenRepository;
@@ -32,37 +43,71 @@ public class OrdenServiceImpl implements OrdenService {
         this.detalleOrdenRepository = detalleOrdenRepository;
     }
 
+    /**
+     * Método que añade un detalle de orden a una orden
+     * @param ordenId
+     * @param detalleOrden
+     * @return orden
+     */
     public Orden addDetalleOrdenToOrden(Long ordenId, DetalleOrden detalleOrden) {
         Orden orden = ordenRepository.findOrdenesByOrdenId(ordenId);
         orden.addDetalleOrden(detalleOrden);
         return ordenRepository.save(orden); // Guarda los cambios en la orden
     }
 
+    /**
+     * Método que devuelve una lista de ordenes
+     * @return lista de ordenes
+     */
     @Override
     public Optional<List<Orden>> getAllOrdenes() {
         return Optional.of(ordenRepository.findAll());
     }
 
+    /**
+     * Método que devuelve una orden por su id
+     * @param ordenId
+     * @return orden
+     */
     @Override
     public Orden getOrdenesById(Long ordenId) {
         return ordenRepository.findOrdenesByOrdenId(ordenId);
     }
 
+    /**
+     * Método que devuelve una lista de ordenes por cliente
+     * @param cliente
+     * @return lista de ordenes
+     */
     @Override
     public List<Orden> findOrdenesByCliente(Cliente cliente) {
         return ordenRepository.findByCliente(cliente);
     }
 
+    /**
+     * Método que elimina una orden por su id
+     * @param ordenId
+     */
     @Override
     public void deleteOrdenesById(Long ordenId) {
         ordenRepository.deleteOrdenesByOrdenId(ordenId);
     }
 
+    /**
+     * Método que elimina una orden
+     * @param orden
+     * @return orden
+     */
     @Override
     public OrdenDTO saveOrdenes(Orden orden) {
         return OrdenMapper.toOrdenDTO(ordenRepository.save(orden));
     }
 
+    /**
+     * Método que actualiza una orden
+     * @param orden
+     * @return orden
+     */
     @Override
     public OrdenDTO updateOrdenes(Orden orden) {
         ordenRepository.findOrdenesByOrdenId(orden.getOrdenId());

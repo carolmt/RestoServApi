@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que implementa los métodos de la interfaz CategoriaService
+ ***************************************************************************************************************/
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
@@ -18,11 +22,21 @@ public class CategoriaServiceImpl implements CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
+    /**
+     * Método que obtiene todas las categorias
+     * @return Lista de categorias
+     */
     @Override
     public List<Categoria> getAllCategorias() {
         return categoriaRepository.findAll();
     }
 
+
+    /**
+     * Método que obtiene una categoria por su nombre
+     * @param nomCat de la categoria
+     * @return Categoria
+     */
     @Override
     public Optional<Categoria> getCategoriasByName(String nomCat) {
         if(nomCat == null) {
@@ -31,11 +45,19 @@ public class CategoriaServiceImpl implements CategoriaService {
         return categoriaRepository.getCategoriasByNomCatIgnoreCase(nomCat);
     }
 
+    /**
+     * Método que guarda una categoria
+     * @param categoria
+     */
     @Override
     public void saveCategorias(Categoria categoria) {
         categoriaRepository.save(categoria);
     }
 
+    /**
+     * Método que elimina una categoria
+     * @param catId de categoria
+     */
     @Override
     public void deleteCategoriasById(Long catId) {
         categoriaRepository.deleteCategoriasByCatId(catId);

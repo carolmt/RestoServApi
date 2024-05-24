@@ -12,6 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que implementa los métodos de la interfaz ClienteService
+ ***************************************************************************************************************/
 @Service
 public class ClienteServiceImpl implements ClienteService{
     private final ClienteRepository clienteRepository;

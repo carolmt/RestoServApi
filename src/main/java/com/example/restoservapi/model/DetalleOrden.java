@@ -7,6 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/***************************************************************************************************************
+ * Autor: Carolina Maldonado Torres
+ * Curso: 2DAM - IES Alvaro Falomir 2022-2024
+ * Descripción: Clase que representa la entidad DetalleOrden
+ ***************************************************************************************************************/
 @Entity
 @Data
 @NoArgsConstructor
