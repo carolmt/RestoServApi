@@ -37,6 +37,7 @@ public class Orden {
     @JsonIgnoreProperties("ordenes")
     private Empleado empleado;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "orden")
     private List<DetalleOrden> detallesOrden;
 

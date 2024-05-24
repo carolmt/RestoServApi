@@ -1,5 +1,6 @@
 package com.example.restoservapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,10 +27,11 @@ public class DetalleOrden {
     @Column(name = "CANTIDAD")
     private final int cantidad = 1;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "orden_id")
     @JsonIgnoreProperties("detallesOrden")
-    Orden orden;
+    private Orden orden;
 
     @ManyToOne
     @JoinColumn(name = "prod_id")
