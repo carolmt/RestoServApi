@@ -16,4 +16,5 @@ public interface OrdenService {
 
     OrdenDTO saveOrden(Orden orden);
     OrdenDTO updateOrdenes(Orden orden);
+    Orden updateOrden(Orden orden);
 }

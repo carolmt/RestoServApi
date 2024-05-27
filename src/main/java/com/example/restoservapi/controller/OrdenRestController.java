@@ -56,13 +56,19 @@ public class OrdenRestController {
     return ResponseEntity.ok(ordenService.saveOrden(orden));
    }
 
-   @PutMapping("/updateOrder")
-    public ResponseEntity<OrdenDTO> updateOrder(@RequestBody Orden orden) {
-     if(orden.getOrdenId() != null){
-          return ResponseEntity.badRequest().build();
-     }
-     return ResponseEntity.ok(ordenService.updateOrdenes(orden));
-    }
+   @PutMapping("/updateOrder/{ordenId}")
+    public ResponseEntity<Orden> updateOrder(@PathVariable Long ordenId, @RequestBody Orden orden) {
+
+       if (ordenId == null) {
+           return ResponseEntity.badRequest().build();
+       }
+       Orden ordenExistente = this.ordenService.getOrdenesById(ordenId);
+       if (ordenExistente == null) {
+           return ResponseEntity.notFound().build();
+       }
+       ordenExistente.setHecho(orden.getHecho());
+       return ResponseEntity.ok(ordenService.updateOrden(ordenExistente));
+   }
 
    @DeleteMapping("/deleteOrder/{ordenId}")
     public ResponseEntity<Orden> deleteOrderById(@PathVariable Long ordenId) {
