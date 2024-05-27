@@ -88,9 +88,14 @@ public class OrdenServiceImpl implements OrdenService {
      * Método que elimina una orden por su id
      * @param ordenId
      */
+    @Transactional
     @Override
     public void deleteOrdenesById(Long ordenId) {
-        ordenRepository.deleteOrdenesByOrdenId(ordenId);
+        Orden orden = ordenRepository.findOrdenesByOrdenId(ordenId);
+        if (orden != null) {
+            detalleOrdenRepository.deleteByOrden(orden);
+            ordenRepository.delete(orden);
+        }
     }
 
     /**
@@ -99,7 +104,7 @@ public class OrdenServiceImpl implements OrdenService {
      * @return orden
      */
     @Override
-    public OrdenDTO saveOrdenes(Orden orden) {
+    public OrdenDTO saveOrden(Orden orden) {
         return OrdenMapper.toOrdenDTO(ordenRepository.save(orden));
     }
 
@@ -113,4 +118,10 @@ public class OrdenServiceImpl implements OrdenService {
         ordenRepository.findOrdenesByOrdenId(orden.getOrdenId());
         return OrdenMapper.toOrdenDTO(ordenRepository.save(orden));
     }
+
+    @Override
+    public List<Orden> findOrdenByHecho(Boolean hecho) {
+        return ordenRepository.findOrdenByHecho(hecho);
+    }
 }
+

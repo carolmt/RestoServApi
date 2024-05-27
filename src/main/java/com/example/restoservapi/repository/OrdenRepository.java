@@ -14,5 +14,5 @@ public interface OrdenRepository extends JpaRepository<Orden, Long> {
     List<Orden> findAll();
     Orden findOrdenesByOrdenId(Long ordenId);
     List<Orden> findByCliente(Cliente cliente);
-    void deleteOrdenesByOrdenId(Long ordenId);
+    List<Orden> findOrdenByHecho(Boolean hecho);
 }

@@ -32,6 +32,11 @@ public class OrdenRestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/undone")
+    public ResponseEntity<List<Orden>> getOrdenesByHecho() {
+        return ResponseEntity.ok(ordenService.findOrdenByHecho(false));
+    }
+
     @GetMapping("/{ordenId}")
     public ResponseEntity<Orden> getOrdenesById(@PathVariable Long ordenId) {
         Orden orden = ordenService.getOrdenesById(ordenId);
@@ -48,9 +53,24 @@ public class OrdenRestController {
     if(orden.getOrdenId()!= null){
         return ResponseEntity.badRequest().build();
     }
-
-    return ResponseEntity.ok(ordenService.saveOrdenes(orden));
+    return ResponseEntity.ok(ordenService.saveOrden(orden));
    }
 
+   @PutMapping("/updateOrder")
+    public ResponseEntity<OrdenDTO> updateOrder(@RequestBody Orden orden) {
+     if(orden.getOrdenId() != null){
+          return ResponseEntity.badRequest().build();
+     }
+     return ResponseEntity.ok(ordenService.updateOrdenes(orden));
+    }
+
+   @DeleteMapping("/deleteOrder/{ordenId}")
+    public ResponseEntity<Orden> deleteOrderById(@PathVariable Long ordenId) {
+        if (ordenId == null) {
+            return ResponseEntity.badRequest().build();
+        }
+    ordenService.deleteOrdenesById(ordenId);
+    return ResponseEntity.noContent().build();
+   }
 
 }

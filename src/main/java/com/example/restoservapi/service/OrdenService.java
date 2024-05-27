@@ -12,7 +12,8 @@ public interface OrdenService {
     Orden getOrdenesById(Long ordenId);
     void deleteOrdenesById(Long ordenId);
     List<Orden> findOrdenesByCliente(Cliente cliente);
+    List<Orden> findOrdenByHecho(Boolean hecho);
 
-    OrdenDTO saveOrdenes(Orden orden);
+    OrdenDTO saveOrden(Orden orden);
     OrdenDTO updateOrdenes(Orden orden);
 }
