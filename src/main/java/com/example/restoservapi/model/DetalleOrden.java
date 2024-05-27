@@ -29,9 +29,6 @@ public class DetalleOrden {
     @Column(name = "prod_id", insertable = false, updatable = false)
     private Long prodId;
 
-    @Column(name = "CANTIDAD")
-    private final int cantidad = 1;
-
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "orden_id")

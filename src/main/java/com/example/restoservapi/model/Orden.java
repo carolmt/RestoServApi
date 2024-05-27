@@ -48,18 +48,6 @@ public class Orden {
     @OneToMany(mappedBy = "orden")
     private List<DetalleOrden> detallesOrden;
 
-    public void setPrecioTotal() {
-        float total = 0;
-        for (DetalleOrden detalle : this.detallesOrden) {
-            total += detalle.getProducto().getPrecio();
-        }
-        this.precioTotal = total;
-    }
-
-    public void setPrecioTotal(float precioTotal) {
-        this.precioTotal = precioTotal + detallesOrden.stream().map(DetalleOrden::getPrecioProducto).reduce(0.0f, Float::sum);
-    }
-
     public void addDetalleOrden(DetalleOrden detalleOrden) {
         detalleOrden.setOrden(this);
         this.detallesOrden.add(detalleOrden);
