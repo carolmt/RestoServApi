@@ -14,7 +14,7 @@ import java.util.Optional;
  ***************************************************************************************************************/
 public interface DetalleOrdenService {
     Optional<DetalleOrden>getDetalleOrdenById(Long detalleId);
-    Optional<List<DetalleOrden>>getAllDetalleOrden();
+    List<DetalleOrden>getAllDetalleOrden();
     void deleteDetalleOrdenById(Long detalleId);
     DetalleOrden saveDetalleOrden(DetalleOrden detalleOrden);
     DetalleOrden updateDetalleOrden(DetalleOrden detalleOrden);

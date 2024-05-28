@@ -41,8 +41,8 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
      * @return Lista de detalles de orden
      */
     @Override
-    public Optional<List<DetalleOrden>> getAllDetalleOrden() {
-        return Optional.of(detalleOrdenRepository.findAll());
+    public List<DetalleOrden> getAllDetalleOrden() {
+        return detalleOrdenRepository.findAll();
     }
 
     /**

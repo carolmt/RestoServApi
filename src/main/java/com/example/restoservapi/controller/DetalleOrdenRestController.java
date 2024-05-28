@@ -26,10 +26,8 @@ public class DetalleOrdenRestController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<DetalleOrden>> getAllDetalleOrden() {
-        return detalleOrdenService.getAllDetalleOrden()
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public List<DetalleOrden> getAllDetalleOrden() {
+        return detalleOrdenService.getAllDetalleOrden();
     }
 
     @GetMapping("/{detalleId}")
