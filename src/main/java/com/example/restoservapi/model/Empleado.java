@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Clase que representa la entidad Empleado
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -25,6 +28,9 @@ public class Empleado {
     @Column(name = "apellido_empl")
     private String apellidoEmpl;
 
+    /**
+     * Relación uno a muchos con la entidad Orden
+     */
     @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL)
     private List<Orden> ordenes;
 

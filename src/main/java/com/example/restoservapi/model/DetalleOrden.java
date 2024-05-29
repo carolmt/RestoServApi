@@ -29,17 +29,27 @@ public class DetalleOrden {
     @Column(name = "prod_id", insertable = false, updatable = false)
     private Long prodId;
 
+    /**
+     * Cantidad de productos de un mismo tipo
+     */
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "orden_id")
     @JsonIgnoreProperties("detallesOrden")
     private Orden orden;
 
+    /**
+     * Producto que se ha pedido
+     */
     @ManyToOne
     @JoinColumn(name = "prod_id")
     @JsonIgnoreProperties("detallesOrden")
     Producto producto;
 
+    /**
+     * Metodo que devuelve el precio de un producto
+     * @return precio del producto
+     */
     public float getPrecioProducto() {
         return this.producto.getPrecio();
     }

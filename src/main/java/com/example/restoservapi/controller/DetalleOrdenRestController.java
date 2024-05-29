@@ -20,16 +20,30 @@ import java.util.List;
 public class DetalleOrdenRestController {
     private final DetalleOrdenService detalleOrdenService;
 
+    /***************************************************************************************************************
+     * Descripción: Constructor que inyecta la dependencia del servicio de DetalleOrden.
+     * @param detalleOrdenService
+     ***************************************************************************************************************/
     @Autowired
     public DetalleOrdenRestController(DetalleOrdenService detalleOrdenService) {
         this.detalleOrdenService = detalleOrdenService;
     }
+
+    /***************************************************************************************************************
+     * Descripción: Método que devuelve una lista con todos los detalles de las órdenes.
+     * @return lista de detalles de orden
+     ***************************************************************************************************************/
 
     @GetMapping("")
     public List<DetalleOrden> getAllDetalleOrden() {
         return detalleOrdenService.getAllDetalleOrden();
     }
 
+    /***************************************************************************************************************
+     * Descripción: Método que devuelve un detalle de orden por su id.
+     * @param detalleId
+     * @return una ResponseEntity con el detalle de orden
+     ***************************************************************************************************************/
     @GetMapping("/{detalleId}")
     public ResponseEntity<DetalleOrden> getDetalleOrdenById(Long detalleId) {
         return this.detalleOrdenService.getDetalleOrdenById(detalleId)
@@ -37,6 +51,12 @@ public class DetalleOrdenRestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+
+    /***************************************************************************************************************
+     * Descripción: Método que crea un detalle de orden.
+     * @param detalleOrden
+     * @return una ResponseEntity que contiene un objeto DetalleOrden
+     ***************************************************************************************************************/
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<DetalleOrden> create(@RequestBody DetalleOrden detalleOrden) {

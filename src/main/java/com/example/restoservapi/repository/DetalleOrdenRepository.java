@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface que extiende de JpaRepository para realizar operaciones CRUD sobre la entidad DetalleOrden.
+ */
 @Repository
 public interface DetalleOrdenRepository extends JpaRepository<DetalleOrden, Long> {
 

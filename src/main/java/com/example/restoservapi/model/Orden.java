@@ -20,10 +20,11 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name="ORDENES")
 public class Orden {
-
-    /***************************************************************************************************************
-     * Atributos de la clase
-     ***************************************************************************************************************/
+    /**
+     * * Clase que representa la entidad Orden en la base de datos.
+     * * La clase es una entidad JPA y se mapea a la tabla ORDENES.
+     * * La clase contiene los atributos de la tabla y las relaciones con otras entidades.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orden_id")
@@ -34,16 +35,27 @@ public class Orden {
     private float precioTotal; //
     private Boolean hecho = false;
 
+    /**
+     * * Relación muchos a uno con la entidad Cliente.
+     * * La relación es unidireccional
+     */
     @ManyToOne
     @JoinColumn(name = "telf") //
     @JsonIgnoreProperties("ordenCliente")
     private Cliente cliente;
 
+    /**
+     * * Relación muchos a uno con la entidad Empleado.
+     * * La relación es unidireccional
+     */
     @ManyToOne
     @JoinColumn(name = "empl_id") //
     @JsonIgnoreProperties("ordenes")
     private Empleado empleado;
 
+    /**
+     * * Relación uno a muchos con la entidad DetalleOrden.
+     */
     @JsonManagedReference
     @OneToMany(mappedBy = "orden")
     private List<DetalleOrden> detallesOrden;

@@ -29,7 +29,7 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
     /**
      * Método que obtiene un detalle de orden por su id
      * @param detalleId
-     * @return Detalle de orden
+     * @return detalle de orden
      */
     @Override
     public Optional<DetalleOrden> getDetalleOrdenById(Long detalleId) {
@@ -38,7 +38,7 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
 
     /**
      * Método que obtiene todos los detalles de orden
-     * @return Lista de detalles de orden
+     * @return lista de detalles de orden
      */
     @Override
     public List<DetalleOrden> getAllDetalleOrden() {
@@ -66,7 +66,7 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
     /**
      * Método que guarda un detalle de orden
      * @param detalleOrden
-     * @return Detalle de orden
+     * @return detalle de orden
      */
     @Override
     public DetalleOrden saveDetalleOrden(DetalleOrden detalleOrden) {
@@ -76,7 +76,7 @@ public class DetalleOrdenServiceImpl implements DetalleOrdenService{
     /**
      * Método que actualiza un detalle de orden
      * @param detalleOrden
-     * @return Detalle de orden
+     * @return detalle de orden
      */
     @Override
     public DetalleOrden updateDetalleOrden(DetalleOrden detalleOrden) {

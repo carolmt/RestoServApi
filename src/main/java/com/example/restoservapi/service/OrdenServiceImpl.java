@@ -118,12 +118,23 @@ public class OrdenServiceImpl implements OrdenService {
         ordenRepository.findOrdenesByOrdenId(orden.getOrdenId());
         return OrdenMapper.toOrdenDTO(ordenRepository.save(orden));
     }
+
+    /**
+     * Método que actualiza una orden
+     * @param orden
+     * @return orden
+     */
     @Override
     public Orden updateOrden(Orden orden) {
         ordenRepository.findOrdenesByOrdenId(orden.getOrdenId());
         return ordenRepository.save(orden);
     }
 
+    /**
+     * Método que devuelve una lista de ordenes por el estado de hecho
+     * @param hecho
+     * @return lista de ordenes
+     */
     @Override
     public List<Orden> findOrdenByHecho(Boolean hecho) {
         return ordenRepository.findOrdenByHecho(hecho);

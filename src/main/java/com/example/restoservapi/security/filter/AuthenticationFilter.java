@@ -16,8 +16,21 @@ import org.springframework.web.filter.GenericFilterBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/******************************************************
+ * Esta clase es usada para filtrar las peticiones
+ * y autenticar a los usuarios basado en el API Key.
+ ******************************************************/
 public class AuthenticationFilter extends GenericFilterBean {
 
+    /*************************************************************************
+     * Este método es usado para filtrar las peticiones y autenticar a los usuarios
+     * basado en el API Key.
+     * @param request: ServletRequest
+     * @param response: ServletResponse
+     * @param filterChain: FilterChain
+     * @throws IOException
+     * @throws ServletException
+     *************************************************************************/
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {

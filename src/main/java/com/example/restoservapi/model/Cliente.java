@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Clase que representa la entidad Cliente en la base de datos.
+ * Se mapea a la tabla CLIENTES.
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,6 +24,9 @@ public class Cliente {
     private String direccion;
     private String comentario;
 
+    /**
+     * Relación uno a muchos con la entidad Orden.
+     */
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Orden> ordenCliente;
 

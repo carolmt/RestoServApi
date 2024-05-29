@@ -17,6 +17,10 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     private final CategoriaRepository categoriaRepository;
 
+    /**
+     * Constructor de la clase  CategoriaServiceImpl
+     * @param categoriaRepository
+     */
     @Autowired
     public CategoriaServiceImpl(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
@@ -24,7 +28,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     /**
      * Método que obtiene todas las categorias
-     * @return Lista de categorias
+     * @return lista de categorias
      */
     @Override
     public List<Categoria> getAllCategorias() {
@@ -35,7 +39,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     /**
      * Método que obtiene una categoria por su nombre
      * @param nomCat de la categoria
-     * @return Categoria
+     * @return categoria
      */
     @Override
     public Optional<Categoria> getCategoriasByName(String nomCat) {

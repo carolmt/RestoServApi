@@ -16,21 +16,39 @@ import java.util.Optional;
 public class ProductoServiceImpl implements ProductoService {
     private final ProductoRepository productoRepository;
 
+    /**
+     * Constructor de la clase ProductoServiceImpl
+     * @param productoRepository
+     */
     @Autowired
     public ProductoServiceImpl(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
     }
 
+    /**
+     * Método que devuelve un producto según su id
+     * @param prodId
+     * @return producto
+     */
     @Override
     public Optional<Producto> getProductoByProdID(Long prodId) {
         return productoRepository.findProductosByProdId(prodId);
     }
 
+    /**
+     * Método que devuelve un producto según su nombre
+     * @param nomProd
+     * @return producto
+     */
     @Override
     public Optional<Producto> getProductosByNomProdIgnoreCase(String nomProd) {
         return productoRepository.findProductosByNomProdIgnoreCase(nomProd);
     }
 
+    /**
+     * Metodo que devuelve una lista de productos
+     * @return lista de productos
+     */
     @Override
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();

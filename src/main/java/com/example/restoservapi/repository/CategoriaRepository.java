@@ -6,10 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Interfaz que extiende de JpaRepository para realizar operaciones CRUD sobre la tabla Categoria.
+ */
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
+    /**
+     * Métodos sin implementar que se usaran para realizar consultas personalizadas.
+     */
     Optional<Categoria> getCategoriasByNomCatIgnoreCase(String nomCat);
-
     void deleteCategoriasByCatId(Long catId);
 }

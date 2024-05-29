@@ -9,6 +9,11 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Clase que representa la entidad Producto en la base de datos.
+ * La clase Producto tiene una relación de muchos a uno con la entidad Categoria.
+ * La clase Producto tiene una relación de uno a muchos con la entidad DetalleOrden.
+ */
 @Entity
 @Data
 @NoArgsConstructor
