@@ -4,10 +4,15 @@
 Para que el programa RestoServ sea funcional, va acompañado de una base de datos y su respectiva API Rest creada con Spring Boot.
 Aquí queda anotada toda la información relevante para su uso.
 
+
+
 **GET :**
 
 
+
 **Categorías :**
+
+
 
 OBTENER TODAS LAS CATEGORIAS:
 
@@ -23,7 +28,9 @@ Ejemplo: http://localhost:8080/RestoServ/api/categorias/bebida
 Opciones: pizza, bebida, postre, entrante.
 
 
+
 **Clientes :** 
+
 
 
 OBTENER TODOS LOS CLIENTES:
@@ -38,7 +45,9 @@ http://localhost:8080/RestoServ/api/clientes/{telf}
 Ejemplo: http://localhost:8080/RestoServ/api/clientes/666999666
 
 
+
 **Órdenes:** 
+
 
 
 OBTENER TODAS LAS ÓRDENES:
@@ -58,7 +67,9 @@ OBTENER ORDENES NO HECHAS (cocina):
 http://localhost:8080/RestoServ/api/ordenes/undone
 
 
+
 **Detalle pedidos :**
+
 
 
 OBTENER TODOS LOS DETALLES DE TODOS LOS PEDIDOS:
@@ -68,7 +79,9 @@ http://localhost:8080/RestoServ/api/detalleOrdenes
 En una segunda versión de la API sacaré un EndPoint que saque los detalles de orden de cada orden, será menos lioso y más útil.
 
 
+
 **Empleados:** 
+
 
 
 OBTENER TODOS LOS EMPLEADOS : 
@@ -97,7 +110,9 @@ http://localhost:8080/RestoServ/api/empleados/{codigo}?{nomEmpl}
 Ejemplo: http://localhost:8080/RestoServ/api/empleados/1012?mario
 
 
+
 **Productos :** 
+
 
 
 OBTENER TODOS LOS PRODUCTOS:
@@ -112,10 +127,14 @@ http://localhost:8080/RestoServ/api/productos/{nomProd}
 Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
 
 
+
 **POST :**
 
 
+
 **Crear cliente:** 
+
+
  
  http://localhost:8080/RestoServ/api/clientes
  
@@ -130,7 +149,10 @@ Datos mínimos para crear cliente:
 	}
 
 
+
 **Crear pedido:**
+
+
 
 http://localhost:8080/RestoServ/api/ordenes/createOrder
  
@@ -154,7 +176,10 @@ Ejemplo:
  Este ejemplo crea una orden vacía, después con detalles orden es cuando rellenamos con información.
 
 
+
 **Crear detalle orden:**
+
+
 
 http://localhost:8080/RestoServ/api/detalleOrdenes
 
@@ -171,10 +196,14 @@ Ejemplo:
 	}
 
 
+
 **PUT :**
 
 
+
 **Actualizar cliente:** 
+
+
  
 http://localhost:8080/RestoServ/api/clientes
  
@@ -191,7 +220,10 @@ Ejemplo:
 Si no se pone el nombre dará error.
 
 
+
 **Editar Ordenes:**
+
+
 
 http://localhost:8080/RestoServ/api/ordenes/updateOrder/{ordenId}
 
@@ -202,17 +234,24 @@ Ejemplo:
 	}
 
 
+
 **DELETE**
 
 
+
 **Eliminar cliente:**
+
+
 
 http://localhost:8080/RestoServ/api/clientes/{telf}
 
 Devuelve NoContentBuild
 
 
+
 **Eliminar pedido por id:**
+
+
 
 http://localhost:8080/RestoServ/api/ordenes/deleteOrder/{ordenId}
 
