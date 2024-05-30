@@ -17,7 +17,6 @@ Esta información se encuentra en el código, o preguntando a la administradora 
 ### GET
 
 
-
 **-Categorías :**
 
 
