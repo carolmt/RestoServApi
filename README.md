@@ -5,6 +5,14 @@ Para que el programa RestoServ sea funcional, va acompañado de una base de dato
 Aquí queda anotada toda la información relevante para su uso.
 
 
+## API KEY
+
+
+RestoServApi tiene un método de seguridad, el cual solo autoriza cualquier llamada con la key correspondiente y estática. De momento tiene una seguridad "basica".
+Para poder hacer uso de esta api, se deberá poner en el header la Key y Value.
+Esta información se encuentra en el código, o preguntando a la administradora (yo).
+
+
 
 **GET :**
 
@@ -13,19 +21,18 @@ Aquí queda anotada toda la información relevante para su uso.
 **-Categorías :**
 
 
+- OBTENER TODAS LAS CATEGORIAS:
+	
+http://localhost:8080/RestoServ/api/categorias
+	
 
-	- OBTENER TODAS LAS CATEGORIAS:
+- OBTENER CATEGORIA ESPECIFICA
+
+http://localhost:8080/RestoServ/api/categorias/{nomCat}
+
+Ejemplo: http://localhost:8080/RestoServ/api/categorias/bebida
 	
-	http://localhost:8080/RestoServ/api/categorias
-	
-	
-	- OBTENER CATEGORIA ESPECIFICA
-	
-	http://localhost:8080/RestoServ/api/categorias/{nomCat}
-	
-	Ejemplo: http://localhost:8080/RestoServ/api/categorias/bebida
-	
-	Opciones: pizza, bebida, postre, entrante.
+Opciones: pizza, bebida, postre, entrante.
 
 
 
@@ -33,12 +40,12 @@ Aquí queda anotada toda la información relevante para su uso.
 
 
 
-OBTENER TODOS LOS CLIENTES:
+- OBTENER TODOS LOS CLIENTES:
 
 http://localhost:8080/RestoServ/api/clientes
 
 
-OBTENER CLIENTE CONCRETO:
+- OBTENER CLIENTE CONCRETO:
 
 http://localhost:8080/RestoServ/api/clientes/{telf}
 
@@ -50,19 +57,19 @@ Ejemplo: http://localhost:8080/RestoServ/api/clientes/666999666
 
 
 
-OBTENER TODAS LAS ÓRDENES:
+- OBTENER TODAS LAS ÓRDENES:
 
 http://localhost:8080/RestoServ/api/ordenes (De momento no saca info porque no me deja crear órdenes:( ).
 
 
-OBTENER PEDIDOS POR ID:
+- OBTENER PEDIDOS POR ID:
 
 http://localhost:8080/RestoServ/api/ordenes/{ordenId}
 
 Ejemplo: http://localhost:8080/RestoServ/api/ordenes/1
 
 
-OBTENER ORDENES NO HECHAS (cocina):
+- OBTENER ORDENES NO HECHAS (cocina):
 
 http://localhost:8080/RestoServ/api/ordenes/undone
 
@@ -72,7 +79,7 @@ http://localhost:8080/RestoServ/api/ordenes/undone
 
 
 
-OBTENER TODOS LOS DETALLES DE TODOS LOS PEDIDOS:
+- OBTENER TODOS LOS DETALLES DE TODOS LOS PEDIDOS:
 
 http://localhost:8080/RestoServ/api/detalleOrdenes
 
@@ -84,26 +91,26 @@ En una segunda versión de la API sacaré un EndPoint que saque los detalles de 
 
 
 
-OBTENER TODOS LOS EMPLEADOS : 
+- OBTENER TODOS LOS EMPLEADOS : 
 
 http://localhost:8080/RestoServ/api/empleados
 
 
-OBTENER EMPLEADO POR ID:
+- OBTENER EMPLEADO POR ID:
 
 http://localhost:8080/RestoServ/api/empleados/{emplId}
 
 Ejemplo: http://localhost:8080/RestoServ/api/empleados/1
 
 
-OBTENER EMPLEADO POR CODIGO
+- OBTENER EMPLEADO POR CODIGO
 
 http://localhost:8080/RestoServ/api/empleados/{codigo}
 
 Ejemplo: http://localhost:8080/RestoServ/api/empleados/1011
 
 
-OBTENER EMPLEADO POR CODIGO Y NOMBRE (AUTH)
+- OBTENER EMPLEADO POR CODIGO Y NOMBRE (AUTH)
 
 http://localhost:8080/RestoServ/api/empleados/{codigo}?{nomEmpl}
 
@@ -115,12 +122,12 @@ Ejemplo: http://localhost:8080/RestoServ/api/empleados/1012?mario
 
 
 
-OBTENER TODOS LOS PRODUCTOS:
+- OBTENER TODOS LOS PRODUCTOS:
 
 http://localhost:8080/RestoServ/api/productos
 
 
-OBTENER PRODUCTOS POR NOMBRE: 
+- OBTENER PRODUCTOS POR NOMBRE: 
 
 http://localhost:8080/RestoServ/api/productos/{nomProd}
 
@@ -132,11 +139,9 @@ Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
 
 
 
-**Crear cliente:** 
-
-
+**- Crear cliente:** 
  
- http://localhost:8080/RestoServ/api/clientes
+http://localhost:8080/RestoServ/api/clientes
  
 Ejemplo:
 
@@ -150,9 +155,7 @@ Datos mínimos para crear cliente:
 
 
 
-**Crear pedido:**
-
-
+**- Crear pedido:**
 
 http://localhost:8080/RestoServ/api/ordenes/createOrder
  
@@ -177,9 +180,7 @@ Ejemplo:
 
 
 
-**Crear detalle orden:**
-
-
+**- Crear detalle orden:**
 
 http://localhost:8080/RestoServ/api/detalleOrdenes
 
@@ -201,9 +202,7 @@ Ejemplo:
 
 
 
-**Actualizar cliente:** 
-
-
+**- Actualizar cliente:** 
  
 http://localhost:8080/RestoServ/api/clientes
  
@@ -221,9 +220,7 @@ Si no se pone el nombre dará error.
 
 
 
-**Editar Ordenes:**
-
-
+**- Editar Ordenes:**
 
 http://localhost:8080/RestoServ/api/ordenes/updateOrder/{ordenId}
 
@@ -239,9 +236,7 @@ Ejemplo:
 
 
 
-**Eliminar cliente:**
-
-
+**- Eliminar cliente:**
 
 http://localhost:8080/RestoServ/api/clientes/{telf}
 
@@ -249,9 +244,7 @@ Devuelve NoContentBuild
 
 
 
-**Eliminar pedido por id:**
-
-
+**- Eliminar pedido por id:**
 
 http://localhost:8080/RestoServ/api/ordenes/deleteOrder/{ordenId}
 
