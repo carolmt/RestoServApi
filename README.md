@@ -58,7 +58,7 @@ Ejemplo: http://localhost:8080/RestoServ/api/clientes/666999666
 
 - OBTENER TODAS LAS ÓRDENES:
 
-http://localhost:8080/RestoServ/api/ordenes (De momento no saca info porque no me deja crear órdenes:( ).
+http://localhost:8080/RestoServ/api/ordenes
 
 
 - OBTENER PEDIDOS POR ID:
