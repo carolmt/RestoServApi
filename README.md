@@ -14,7 +14,7 @@ Esta información se encuentra en el código, o preguntando a la administradora 
 
 
 
-**GET :**
+### GET
 
 
 
@@ -135,7 +135,7 @@ Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
 
 
 
-**POST :**
+### POST
 
 
 
@@ -198,7 +198,7 @@ Ejemplo:
 
 
 
-**PUT :**
+### PUT
 
 
 
@@ -232,7 +232,7 @@ Ejemplo:
 
 
 
-**DELETE**
+### DELETE
 
 
 
