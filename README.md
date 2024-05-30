@@ -1,255 +1,219 @@
-API RESTOSERV
+**API RESTOSERV**
 
-Para que el programa RestoServ sea funcional, va acompañado de una base de datos y su respectiva API Rest creada con Spring Boot. Aquí queda anotada toda la información relevante para su uso.
-Endpoints
-GET
-Categorías
 
-    Obtener todas las categorías:
+Para que el programa RestoServ sea funcional, va acompañado de una base de datos y su respectiva API Rest creada con Spring Boot.
+Aquí queda anotada toda la información relevante para su uso.
 
-    bash
+**GET :**
 
-GET /RestoServ/api/categorias
+
+**Categorías :**
+
+OBTENER TODAS LAS CATEGORIAS:
 
 http://localhost:8080/RestoServ/api/categorias
 
-Obtener categoría específica:
 
-swift
+OBTENER CATEGORIA ESPECIFICA
 
-    GET /RestoServ/api/categorias/{nomCat}
+http://localhost:8080/RestoServ/api/categorias/{nomCat}
 
-    Ejemplo: http://localhost:8080/RestoServ/api/categorias/bebida
+Ejemplo: http://localhost:8080/RestoServ/api/categorias/bebida
 
-    Opciones: pizza, bebida, postre, entrante.
+Opciones: pizza, bebida, postre, entrante.
 
-Clientes
 
-    Obtener todos los clientes:
+**Clientes :** 
 
-    bash
 
-GET /RestoServ/api/clientes
+OBTENER TODOS LOS CLIENTES:
 
 http://localhost:8080/RestoServ/api/clientes
 
-Obtener cliente concreto:
 
-swift
+OBTENER CLIENTE CONCRETO:
 
-    GET /RestoServ/api/clientes/{telf}
+http://localhost:8080/RestoServ/api/clientes/{telf}
 
-    Ejemplo: http://localhost:8080/RestoServ/api/clientes/666999666
+Ejemplo: http://localhost:8080/RestoServ/api/clientes/666999666
 
-Órdenes
 
-    Obtener todas las órdenes:
+**Órdenes:** 
 
-    bash
 
-GET /RestoServ/api/ordenes
+OBTENER TODAS LAS ÓRDENES:
 
-http://localhost:8080/RestoServ/api/ordenes
-(De momento no saca info porque no me deja crear órdenes :( ).
+http://localhost:8080/RestoServ/api/ordenes (De momento no saca info porque no me deja crear órdenes:( ).
 
-Obtener pedidos por ID:
 
-swift
+OBTENER PEDIDOS POR ID:
 
-GET /RestoServ/api/ordenes/{ordenId}
+http://localhost:8080/RestoServ/api/ordenes/{ordenId}
 
 Ejemplo: http://localhost:8080/RestoServ/api/ordenes/1
 
-Obtener órdenes no hechas (cocina):
 
-swift
+OBTENER ORDENES NO HECHAS (cocina):
 
-    GET /RestoServ/api/ordenes/undone
+http://localhost:8080/RestoServ/api/ordenes/undone
 
-    http://localhost:8080/RestoServ/api/ordenes/undone
 
-Detalle pedidos
+**Detalle pedidos :**
 
-    Obtener todos los detalles de todos los pedidos:
 
-    bash
-
-    GET /RestoServ/api/detalleOrdenes
-
-    http://localhost:8080/RestoServ/api/detalleOrdenes
-
-    En una segunda versión de la API sacaré un EndPoint que saque los detalles de orden de cada orden, será menos lioso y más útil.
-
-Empleados
-
-    Obtener todos los empleados:
-
-    bash
-
-GET /RestoServ/api/empleados
-
-http://localhost:8080/RestoServ/api/empleados
-
-Obtener empleado por ID:
-
-swift
-
-GET /RestoServ/api/empleados/{emplId}
-
-Ejemplo: http://localhost:8080/RestoServ/api/empleados/1
-
-Obtener empleado por código:
-
-swift
-
-GET /RestoServ/api/empleados/{codigo}
-
-Ejemplo: http://localhost:8080/RestoServ/api/empleados/1011
-
-Obtener empleado por código y nombre (AUTH):
-
-swift
-
-    GET /RestoServ/api/empleados/{codigo}?{nomEmpl}
-
-    Ejemplo: http://localhost:8080/RestoServ/api/empleados/1012?mario
-
-Productos
-
-    Obtener todos los productos:
-
-    bash
-
-GET /RestoServ/api/productos
-
-http://localhost:8080/RestoServ/api/productos
-
-Obtener productos por nombre:
-
-swift
-
-    GET /RestoServ/api/productos/{nomProd}
-
-    Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
-
-POST
-Crear cliente:
-
-bash
-
-POST /RestoServ/api/clientes
-
-http://localhost:8080/RestoServ/api/clientes
-
-Ejemplo:
-
-json
-
-{
-    "telf": 1111222333,
-    "nom_cli": "PABLO"
-}
-
-Crear pedido:
-
-swift
-
-POST /RestoServ/api/ordenes/createOrder
-
-http://localhost:8080/RestoServ/api/ordenes/createOrder
-
-Ejemplo:
-
-json
-
-{
-    "cliente": {
-        "telf": 12345
-    },
-    "empleado": {
-        "emplId": 1
-    },
-    "detallesOrden": [
-        {
-        }
-    ]
-}
-
-Este ejemplo crea una orden vacía, después con detalles orden es cuando rellenamos con información.
-Crear detalle orden:
-
-bash
-
-POST /RestoServ/api/detalleOrdenes
+OBTENER TODOS LOS DETALLES DE TODOS LOS PEDIDOS:
 
 http://localhost:8080/RestoServ/api/detalleOrdenes
 
+En una segunda versión de la API sacaré un EndPoint que saque los detalles de orden de cada orden, será menos lioso y más útil.
+
+
+**Empleados:** 
+
+
+OBTENER TODOS LOS EMPLEADOS : 
+
+http://localhost:8080/RestoServ/api/empleados
+
+
+OBTENER EMPLEADO POR ID:
+
+http://localhost:8080/RestoServ/api/empleados/{emplId}
+
+Ejemplo: http://localhost:8080/RestoServ/api/empleados/1
+
+
+OBTENER EMPLEADO POR CODIGO
+
+http://localhost:8080/RestoServ/api/empleados/{codigo}
+
+Ejemplo: http://localhost:8080/RestoServ/api/empleados/1011
+
+
+OBTENER EMPLEADO POR CODIGO Y NOMBRE (AUTH)
+
+http://localhost:8080/RestoServ/api/empleados/{codigo}?{nomEmpl}
+
+Ejemplo: http://localhost:8080/RestoServ/api/empleados/1012?mario
+
+
+**Productos :** 
+
+
+OBTENER TODOS LOS PRODUCTOS:
+
+http://localhost:8080/RestoServ/api/productos
+
+
+OBTENER PRODUCTOS POR NOMBRE: 
+
+http://localhost:8080/RestoServ/api/productos/{nomProd}
+
+Ejemplo: http://localhost:8080/RestoServ/api/productos/fanta naranja
+
+
+**POST :**
+
+
+**Crear cliente:** 
+ 
+ http://localhost:8080/RestoServ/api/clientes
+ 
 Ejemplo:
 
-json
+Datos mínimos para crear cliente:
 
-{
-    "orden": {
-        "ordenId": 21
-    },
-    "producto": {
-        "prodId": 12
-    },
-    "cantidad": 2
-}
+	{
+	"telf": 1111222333,
+	
+	"nom_cli": "PABLO"
+	}
 
-PUT
-Actualizar cliente:
 
-bash
+**Crear pedido:**
 
-PUT /RestoServ/api/clientes
+http://localhost:8080/RestoServ/api/ordenes/createOrder
+ 
+Ejemplo:
 
+	{
+	    "cliente": {
+	        "telf": 12345
+	    },
+	    "empleado": {
+	        "emplId": 1
+	    },
+	    "detallesOrden": [
+	        {
+	           
+	        }
+	    ]
+	}
+
+
+ Este ejemplo crea una orden vacía, después con detalles orden es cuando rellenamos con información.
+
+
+**Crear detalle orden:**
+
+http://localhost:8080/RestoServ/api/detalleOrdenes
+
+Ejemplo: 
+	
+	{
+	    "orden": {
+	        "ordenId": 21
+	    },
+	    "producto": {
+	        "prodId": 12
+	    },
+	    "cantidad": 2
+	}
+
+
+**PUT :**
+
+
+**Actualizar cliente:** 
+ 
 http://localhost:8080/RestoServ/api/clientes
-
-Ejemplo:
-
-json
-
-{
-    "telf": 1111222333,
-    "nom_cli": "PABLO",
-    "direccion": "calle falsa, 123"
-}
+ 
+Ejemplo: 
+ 
+	{
+	"telf": 1111222333,
+	
+	"nom_cli": "PABLO",
+	
+	"direccion": "calle falsa, 123"
+	}
 
 Si no se pone el nombre dará error.
-Editar órdenes:
 
-swift
 
-PUT /RestoServ/api/ordenes/updateOrder/{ordenId}
+**Editar Ordenes:**
 
 http://localhost:8080/RestoServ/api/ordenes/updateOrder/{ordenId}
 
 Ejemplo:
 
-json
+	{
+	    "hecho" : true
+	}
 
-{
-    "hecho": true
-}
 
-DELETE
-Eliminar cliente:
+**DELETE**
 
-swift
 
-DELETE /RestoServ/api/clientes/{telf}
+**Eliminar cliente:**
 
 http://localhost:8080/RestoServ/api/clientes/{telf}
 
-Devuelve NoContentBuild.
-Eliminar pedido por ID:
+Devuelve NoContentBuild
 
-swift
 
-DELETE /RestoServ/api/ordenes/deleteOrder/{ordenId}
+**Eliminar pedido por id:**
 
 http://localhost:8080/RestoServ/api/ordenes/deleteOrder/{ordenId}
 
-Devuelve NoContentBuild.
+Devuelve NoContentBuild
